@@ -29,10 +29,10 @@ Disassembly of section .text:
   4c:	e59f102c 	ldr	r1, [pc, #44]	; 80 <delay_loop+0x1c>
   50:	e5810000 	str	r0, [r1]
   54:	eb000000 	bl	5c <delay>
-  58:	eaffffee 	b	18 <flash>
+  58:	ebffffee 	bl	18 <flash>
 
 0000005c <delay>:
-  5c:	e59f2020 	ldr	r2, [pc, #32]	; 84 <delay_loop+0x20>
+  5c:	e3a02402 	mov	r2, #33554432	; 0x2000000
   60:	e3a03000 	mov	r3, #0
 
 00000064 <delay_loop>:
@@ -44,7 +44,6 @@ Disassembly of section .text:
   78:	11000060 	tstne	r0, r0, rrx
   7c:	11000104 	tstne	r0, r4, lsl #2
   80:	11000064 	tstne	r0, r4, rrx
-  84:	000dbba0 	andeq	fp, sp, r0, lsr #23
 
 Disassembly of section .ARM.attributes:
 
