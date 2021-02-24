@@ -1,0 +1,62 @@
+
+led.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <_start>:
+   0:	e59f0078 	ldr	r0, [pc, #120]	; 80 <delay_loop+0x10>
+   4:	e3a01000 	mov	r1, #0
+   8:	e5801000 	str	r1, [r0]
+   c:	e3a00001 	mov	r0, #1
+  10:	e59f106c 	ldr	r1, [pc, #108]	; 84 <delay_loop+0x14>
+  14:	e5810000 	str	r0, [r1]
+  18:	e3a00010 	mov	r0, #16
+  1c:	e59f1064 	ldr	r1, [pc, #100]	; 88 <delay_loop+0x18>
+  20:	e5810000 	str	r0, [r1]
+
+00000024 <flash>:
+  24:	e3a00001 	mov	r0, #1
+  28:	e59f105c 	ldr	r1, [pc, #92]	; 8c <delay_loop+0x1c>
+  2c:	e5810000 	str	r0, [r1]
+  30:	eb00000c 	bl	68 <delay>
+  34:	e3a00201 	mov	r0, #268435456	; 0x10000000
+  38:	e59f104c 	ldr	r1, [pc, #76]	; 8c <delay_loop+0x1c>
+  3c:	e5810000 	str	r0, [r1]
+  40:	eb000008 	bl	68 <delay>
+  44:	e3a00002 	mov	r0, #2
+  48:	e59f1040 	ldr	r1, [pc, #64]	; 90 <delay_loop+0x20>
+  4c:	e5810000 	str	r0, [r1]
+  50:	eb000004 	bl	68 <delay>
+  54:	e3a00000 	mov	r0, #0
+  58:	e59f1030 	ldr	r1, [pc, #48]	; 90 <delay_loop+0x20>
+  5c:	e5810000 	str	r0, [r1]
+  60:	eb000000 	bl	68 <delay>
+  64:	ebffffee 	bl	24 <flash>
+
+00000068 <delay>:
+  68:	e3a02402 	mov	r2, #33554432	; 0x2000000
+  6c:	e3a03000 	mov	r3, #0
+
+00000070 <delay_loop>:
+  70:	e2422001 	sub	r2, r2, #1
+  74:	e1520003 	cmp	r2, r3
+  78:	1afffffc 	bne	70 <delay_loop>
+  7c:	e1a0f00e 	mov	pc, lr
+  80:	10060000 	andne	r0, r6, r0
+  84:	11000100 	tstne	r0, r0, lsl #2
+  88:	11000060 	tstne	r0, r0, rrx
+  8c:	11000104 	tstne	r0, r4, lsl #2
+  90:	11000064 	tstne	r0, r4, rrx
+
+Disassembly of section .ARM.attributes:
+
+00000000 <.ARM.attributes>:
+   0:	00001941 	andeq	r1, r0, r1, asr #18
+   4:	61656100 	cmnvs	r5, r0, lsl #2
+   8:	01006962 	tsteq	r0, r2, ror #18
+   c:	0000000f 	andeq	r0, r0, pc
+  10:	00543405 	subseq	r3, r4, r5, lsl #8
+  14:	01080206 	tsteq	r8, r6, lsl #4
+  18:	Address 0x00000018 is out of bounds.
+
