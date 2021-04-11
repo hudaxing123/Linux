@@ -1,0 +1,37 @@
+
+led.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <_start>:
+   0:	e3a00201 	mov	r0, #268435456	; 0x10000000
+   4:	e3a01421 	mov	r1, #553648128	; 0x21000000
+   8:	e5810000 	str	r0, [r1]
+   c:	e3a00201 	mov	r0, #268435456	; 0x10000000
+  10:	e59f101c 	ldr	r1, [pc, #28]	; 34 <flag+0x4>
+  14:	e5810000 	str	r0, [r1]
+  18:	e3a00201 	mov	r0, #268435456	; 0x10000000
+  1c:	e59f1014 	ldr	r1, [pc, #20]	; 38 <flag+0x8>
+  20:	e5810000 	str	r0, [r1]
+  24:	e3a00201 	mov	r0, #268435456	; 0x10000000
+  28:	e59f100c 	ldr	r1, [pc, #12]	; 3c <flag+0xc>
+  2c:	e5810000 	str	r0, [r1]
+
+00000030 <flag>:
+  30:	eafffffe 	b	30 <flag>
+  34:	11104000 	tstne	r0, r0
+  38:	11600000 	cmnne	r0, r0
+  3c:	11640000 	cmnne	r4, r0
+
+Disassembly of section .ARM.attributes:
+
+00000000 <.ARM.attributes>:
+   0:	00001941 	andeq	r1, r0, r1, asr #18
+   4:	61656100 	cmnvs	r5, r0, lsl #2
+   8:	01006962 	tsteq	r0, r2, ror #18
+   c:	0000000f 	andeq	r0, r0, pc
+  10:	00543405 	subseq	r3, r4, r5, lsl #8
+  14:	01080206 	tsteq	r8, r6, lsl #4
+  18:	Address 0x00000018 is out of bounds.
+
