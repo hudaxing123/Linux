@@ -1,19 +1,32 @@
 /********
-介绍c语言整形变量
+说明：介绍C语言的++和--
+作者：小柠檬
+时间：2021-04-11
+作用：实现自增和自减
 ********/
 
 #include <stdio.h>
 
 int main(int argc, char **argv)
 {
-	int a;
-	int b;
-	float c;
+	int a, b;
 	
-	a = 12;
-	b = 23;
-	c = b/a;
-	//printf("c= %d\n",c);
-	printf("c= %.2f\n",c);
+	a = 2;
+	++a;
+	printf("a= %d\n", a);
+	
+	a = 2;
+	a += 1;
+	printf("a= %d\n", a);	//a=3 
+	
+	a = 2;
+	b = a++;     //先赋值在++,
+	printf("b= %d\n", b);   //b=2
+	printf("a= %d\n", a);   //a=3
+	
+	a = 2;
+	b = ++a;    //先执行++，在赋值
+	printf("b= %d\n", b);	//b=3 
+	printf("a= %d\n", a);   //a=3
 	return 0;
 }
