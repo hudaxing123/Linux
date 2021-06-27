@@ -1,0 +1,4 @@
+# makefile test
+
+all:	 
+	echo "makefile test"
